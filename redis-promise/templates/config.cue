@@ -42,15 +42,7 @@ import (
 // Instance takes the config values and outputs the Kubernetes objects.
 #Instance: {
 	config: #Config
-
 	objects: {
-		sa:  #ServiceAccount & {_config: config}
-		svc: #Service & {_config:        config}
-		cm:  #ConfigMap & {_config:      config}
-
-		deploy: #Deployment & {
-			_config: config
-			_cmName: objects.cm.metadata.name
-		}
+		promise: #Promise & {_config: config}
 	}
 }
